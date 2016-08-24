@@ -2,7 +2,7 @@
 <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>使用fread函数读取文件</title>
+    <title>浏览目录</title>
     <style type="text/css">
         <!--
         body,td,th{
@@ -18,21 +18,15 @@
     </style></head>
     <body>
         <?php
-        $filename="04.txt";
-        $fp=fopen($filename,"rb");
-        echo fread($fp,32);
-        echo "<p>";
-        echo fread($fp,filesize($filename));
+        $path='E:\AppServ\www\mysite\13\5';
+        if(is_dir($path)){
+            $dir=scandir($path);
+            foreach($dir as $value){
+                echo $value."<br>";
+            }
+        }else{
+            echo "目录路径错误";
+        }
         ?>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
